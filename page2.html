@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 2</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue", sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #FF8C00; /* Dark Orange */
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+        .header h1 {
+            font-size: 3.5rem;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .page-nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px 0;
+        }
+        .page-nav a {
+            display: inline-block;
+            background-color: #FF8C00; /* Dark Orange */
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 10px 20px;
+            border-radius: 20px; /* Rounded edges */
+        }
+        
+        .page-nav a.shake {
+            animation: shake 0.5s ease-in-out;
+        }
+        
+        @keyframes shake {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            25% {
+                transform: translateX(-5px);
+            }
+            50% {
+                transform: translateX(5px);
+            }
+            75% {
+                transform: translateX(-5px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-nav">
+        <a href="index.html" class="shake">Home</a>
+    </div>
+    <div class="header">
+        <h1>Page 2</h1>
+        <p>Additional Page with Shaking Animation</p>
+    </div>
+    <div class="container">
+        <div class="footer">
+            <p>&copy; 2023-2069 Borner Glos LLC</p>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const buttons = document.querySelectorAll(".page-nav a");
+                buttons.forEach((button) => {
+                    button.addEventListener("click", function (event) {
+                        event.preventDefault();
+                        const targetUrl = button.getAttribute("href");
+                        
+                        button.classList.add("shake");
+                        
+                        setTimeout(function () {
+                            window.location.href = targetUrl;
+                        }, 500); // Delay for 0.5 seconds (same as animation duration)
+                    });
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>
